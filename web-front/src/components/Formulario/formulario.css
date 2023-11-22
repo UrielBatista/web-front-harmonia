@@ -1,0 +1,289 @@
+.div-main {
+    /* background-color: #02439D; */
+    background-image:  url("../../assests/png/orquestra.jpg");
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    border-radius: 0%;
+    max-width: 100%;
+    overflow: hidden;
+    resize: none;
+    padding: 50px 0;
+
+}
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.cabecalho-form {
+    padding: 40px 0;
+    color: rgb(255, 255, 255);
+}
+.cabecalho-form h1 {
+    font-family: 'Ledger', serif;
+}
+
+.cadastrese{
+    color: #FFFFFF;
+    
+}
+.conteudo-formulario {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    background-color: #FFF;
+    border-radius: 8px;
+    margin-bottom: auto;
+    width: 100%;
+    max-width: 600px;
+    min-width: 330px;
+    text-align: left;
+}
+.formulario {
+    padding: 30px 10px;
+    
+}
+
+.formulario  .label-form{
+    color: #02439D;
+    font-weight: 500;
+}
+.categoria {
+    line-height: 0;
+    height: 100%;
+    padding: 14px;
+    color:  #11385B;  
+}
+.categoria option {
+    color:  #11385B;
+}
+.principal {
+    margin-top: -5px; 
+}
+.outros-categoria {
+    margin-top: 10px;
+}
+.extensao-arquivo {
+    text-align: justify;
+    margin-top: 30px;
+    color: #212529;
+    padding-bottom: 5px;
+}
+.div-concordo p{
+    font-size: 11px;
+    margin-top: -20px;
+}
+.div-concordo a, .div-concordo a:hover {
+    color: #117CEC;
+    cursor: pointer;
+}
+.concordo {
+    padding-top: 10px;
+}
+.p_para_baixar p{
+    font-size: 12px;
+}
+.Dropdown{
+    background-color: #117CEC;
+}
+
+.categoria_principal{
+    height: 50px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.concordo label  {
+   font-size: 11px;
+   padding: 5px 0;
+   text-align: justify; 
+   width: 100%;
+} 
+.new-checkbox {
+    font-size: 11px;
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+    padding: 10px 0;
+}
+.new-checkbox input {
+    margin-top: 0px;
+    margin-left: 0px;
+}
+.new-checkbox label {
+    margin-left: 15px;
+    margin-top: -2px;
+    text-align: justify;
+}
+.new-checkbox a {
+    color: #117CEC;
+    cursor: pointer;
+}
+.new-checkbox a:hover {
+    color: #117CEC;
+    
+}
+
+.mascara-cell {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+}
+.mascara-cell input {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border: 1px solid #BAC9CC;
+    padding: 12px;
+    margin-top: -5px;
+    color:  #11385B;
+    -webkit-appearance: none;
+}
+.mascara-cell ::placeholder{
+    font-size: 16px;
+} 
+
+.div-label-input-file {
+    width: 100%;
+    max-width: 440px;
+    display: flex;
+    margin: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-limite {
+    text-align: end;
+    font-size: smaller;
+}
+.select-color {
+    color:  #11385B;
+}
+.div-label-input-file input {
+    display: none;
+}
+.icon-upload {
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.file-custom {
+    background-color: #1F83ED;
+    width: 100%;
+}
+.label-input-file{
+    font-size: 14px;
+    color: #830601;
+    padding: 16px 0;
+    font-weight: 500;
+    border: 1px solid #830601;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+.tamanho-arquivo {
+    margin-top: -45px;
+}
+textarea.form-control {
+    margin-top: -5px;
+    min-height: 100px;
+    max-height: 250px;
+}
+.extensao-arquivo b {
+    font-size: 12px;
+}
+
+.button-send {
+    background-color: #dc3545;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 16px;
+    margin-top: 40px;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    transition-delay: 0.1ms;
+
+}
+
+.button-send:hover {
+    background-color: #830601;
+}
+.swal2-header {
+    font-size: 14px;
+}
+.swal2-header .swal2-title{
+    font-size: 1.3rem;   
+}
+
+
+/* PARTES LATERAIS */
+.div-lateral {
+    padding: 20px;
+}
+.ponto-um {
+    display: flex;
+    justify-content: center;
+    padding-top: 400px;
+    
+}
+.ponto-dois {
+    padding-left: 200px;
+    justify-content: end;
+    margin-top: 100px;
+  
+}
+.ponto-esquerda{
+    height: 100px;
+    width: 200px;
+    background:url('../../assests/svg/vertical_points.svg') no-repeat;
+    margin-top: 100px;
+    
+}
+
+.ponto-direita{
+    height: 400px;
+    width: 200px;
+    background:url('../../assests/svg/points.svg')  no-repeat;
+    padding: 10px;
+}
+
+
+@media screen and (max-width: 1799px) {
+    .div-lateral {
+        display: none;
+    }
+    .button-send {
+        padding: 14px 12px;
+    }
+    .tres-divs {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .cabecalho-form h1 {
+        font-size: 30px;
+    }
+    .cabecalho-form h5 {
+        font-size: 16px;
+    }
+    .cabecalho-form p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 337px){
+    
+    
+}

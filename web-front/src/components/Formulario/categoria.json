@@ -1,0 +1,16 @@
+[
+    {
+      "ZERO": "Selecione um Instrumento",
+      "UM": "Violino",
+      "DOIS": "Violao",
+      "TRES": "Teclado",
+      "QUATRO": "Flauta",
+      "CINCO": "Trompete",
+      "SEIS": "Viola",
+      "SETE": "Baixo",
+      "OITO": "Canto - SOPRANO",
+      "NOVE": "Canto - CONTRALTO",
+      "DEZ": "Canto - BAIXO",
+      "ONZE": "Canto - TENO"
+    }
+]

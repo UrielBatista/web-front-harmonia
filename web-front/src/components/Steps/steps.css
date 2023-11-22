@@ -1,0 +1,117 @@
+:root {
+    --primary-color:#0054A5;
+    --secondary-color: #ECECEC;
+    --button-project: red;
+    --bg-main-div: #F4F9FA;
+}
+
+.steps {
+    margin-top: 50px;
+    padding-bottom: 56px;
+    font-family: 'Rubik', sans-serif;
+    color: #03519C;
+    
+}
+
+.div-steps {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    background-color: white/*  var(--third-color)*/;
+
+}
+
+.div-fast-dating .como-funciona{
+    /* padding-bottom: 0px; */
+    font-size: 40px;
+    font-family: 'Ledger', serif;
+    color: black;
+    margin-top: 15px;
+    
+}
+/* .div-fast-dating p {
+    margin: 0px 15%;
+} */
+.div-sec-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px 14%;
+    align-content: space-around;
+}
+
+.div-passo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: auto;
+    padding:  0px 20px;    
+    /* flex-grow: 1 1 0; */
+    width: 50%; 
+}
+.div-passo p{ 
+  width: auto;
+  padding-top: 2px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  color: #11385B;
+}
+
+.icon-steps {
+    margin: 20px 0;
+    /* fill: blue; */
+}
+
+.svg-icon {
+    width: 60px;
+    height: 60px;
+    margin: 20px 0;
+    
+}
+.div-fast-dating h1, .linha-horizontal {
+    margin-bottom: 10px;
+    padding: 0 25px;
+    text-align: center;
+}
+.linha-horizontal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .div-sec-steps {
+        flex-direction: column;
+    }
+    .div-fast-dating {
+        padding: 0;
+        margin-left: -20px;
+        
+    }
+    .div-fast-dating .como-funciona{
+        /* padding-bottom: 0px; */
+        font-size: 20px; 
+    } 
+    .linha-horizontal svg {
+        margin: 0px;
+        padding: 0;
+    }
+    .div-passo  {
+        width: 100%;
+    }
+    .div-passo p {
+        font-size: 12px;
+    }
+    .svg-icon {
+        width: 40px;
+        height: 40px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        
+    }
+}
+

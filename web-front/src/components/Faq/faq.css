@@ -1,0 +1,128 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* :root {
+    --primary-color:#0054A5;
+    --secondary-color: #ECECEC;
+    --button-project: red;
+    --bg-main-div: #F4F9FA;
+    --ux-text-color: #03519C;
+} */
+.main-faq {
+   color: var(--ux-text-color); 
+   padding: 5% 0px; 
+}
+.div-faq {
+    width: 100%;
+    padding: 10px 0px ;
+
+}
+
+.main-faq  h2 {
+    font-size: 40px;
+    font-weight: 500;
+    margin-left: 10%;
+}
+
+.faq-header h2 {
+    font-family: 'Ledger', serif;
+}
+
+.perguntas-freq {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    padding-bottom: 10px;
+    width: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+details {
+    border: 1px solid #DFEAEC;  
+    margin-bottom: 20px;
+    border-radius: 5px;
+    
+}
+
+details p {
+    padding: 10px 30px;
+    font-size: 16px;
+    text-align: left;
+    line-height: 24px;
+    font-family: 'Ledger', serif;
+}
+/* 
+details[open] summary::after{
+    content: ' - ';
+    background-color: blue;
+    
+    
+} */
+
+summary {
+    font-size: 18px;
+    padding: 16px 10px;
+    cursor: pointer;  
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Ledger', serif;
+    
+}
+summary::-webkit-details-marker { /* For Chrome */
+    display: none;
+}
+
+summary:hover {
+    background-color: #ECECEC;
+
+}
+
+/* summary:after {
+    background: red; 
+    border-radius: 5px; 
+    content: "+"; 
+    color: #fff;  */
+    /* float: left;  */
+    /* font-size: 1.5em; 
+    font-weight: bold; 
+    margin: 0; 
+    text-align: center; 
+    width: 25px; */
+  /* } */
+.pf-parte1 {
+    margin-top: 20px;
+    width: 100%;
+    margin-right: 10px;
+}
+.pf-parte2 {
+    margin-top: 20px;
+    width: 100%;
+    margin-left: 10px;
+}
+@media screen and (max-width: 768px){
+    .perguntas-freq {
+        flex-direction: column;
+    }
+    .faq-header h2{
+        text-align: center;
+        margin: 0;
+    }
+    .pf-parte2 {
+        margin: 0px;
+    }
+    summary {
+        font-size: 14px;
+    }
+    details p {
+        font-size: 14px;
+
+    }
+    
+
+}
