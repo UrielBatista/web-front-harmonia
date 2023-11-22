@@ -105,7 +105,7 @@ router.route('/inscricao/pagamento').post( async (request,response) => {
             expiracao: 3600
         },
         valor: {
-            original: '1.00'
+            original: '0.01'
         },
         chave: 'ec657c56-39ce-405b-bc0e-945398257665',
         solicitacaoPagador: 'Cobrança dos serviços prestados.'
@@ -117,11 +117,12 @@ router.route('/inscricao/pagamento').post( async (request,response) => {
     response.json(qrcodeResponse.data);
 })
 
-//POST
-app.post('/webhook(/pix)?', (req, res) => {
-    console.log(req.body);
-    res.send('200');
-});
+//GET
+router.route('/verificacao/pessoa/:id').get( async (request,response)=>{
+  const reqGN = await reqGNAlready;
+  const requestPersonPayed = await reqGN.get(`/v2/webhook/${request.params.id}`)
+  requestPersonPayed;
+})
 
 
 var port = process.env.PORT || 8090;

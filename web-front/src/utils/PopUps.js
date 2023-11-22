@@ -1,4 +1,5 @@
-const  Swal  = require('sweetalert2')
+const CreatePerson = require('./createPerson');
+const Swal = require('sweetalert2');
 
 module.exports = {
     campoObtigatorio:  ()=>{
@@ -93,7 +94,7 @@ module.exports = {
           })
                 
     },
-    confirmationPaymantPix: (img, qrcode) =>{
+    confirmationPaymantPix: (img, qrcode, formdata) =>{
         Swal.fire({
             title: "Pagamento!",
             text: "Leia o QRCode acima para fazer o pagamento!",
@@ -116,9 +117,21 @@ module.exports = {
                     imageWidth: 400,
                     imageHeight: 200,
                     imageAlt: "Custom image"
-            })
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // chamar metodo aqui
+                    CreatePerson.createPersonData(formdata);
+                    Swal.fire({
+                        icon: 'success',
+                        title: "Submetemos seus dados para nossa base!",
+                        html:
+                        'Em breve enviaremos um email para você!',
+                        imageWidth: 400,
+                        imageHeight: 200,
+                    })
+                }})
             }
-          });
+        });
     },
     uploadingProgress: ()=>{
         Swal.fire({

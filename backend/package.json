@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon api.js"
+    "start": "nodemon src/api.js"
   },
   "dependencies": {
     "axios": "^1.6.2",

@@ -88,11 +88,10 @@ const Formulario = (props) => {
 
                 try {
                     api.post('/inscricao/pagamento', formdata)
-                        .then(response => {
+                        .then(async response => {
                             console.log(response.data);
-                            PopUps.confirmationPaymantPix(response.data.imagemQrcode, response.data.qrcode)
-                            if (response.status === 201) {
-                                PopUps.confirmationSuccess()
+                            PopUps.confirmationPaymantPix(response.data.imagemQrcode, response.data.qrcode, formdata);
+                            if (response.data.qrcode !== ''){
                                 limparCampos()
                                 enableDisableButton()
                             }
@@ -105,9 +104,7 @@ const Formulario = (props) => {
                             if (JSON.stringify(error.message).includes('415')) {
                                 PopUps.confirmationExtensao()
                             }
-                            if (!JSON.stringify(error.message).includes('415') && !JSON.stringify(error.message).includes('413')) {
-                                PopUps.confirmationUndefined()
-                            }
+                            
                             enableDisableButton()
                         })
 
