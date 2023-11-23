@@ -2,9 +2,9 @@ import api from '../services/api.js';
 
 const PopUps = require('./PopUps.js');
 
-export function createPersonData (formdata) {
+export async function createPersonData (formdata) {
     try {
-        api.post('/inscricao/pessoa', formdata)
+        await api.post('/inscricao/pessoa', formdata)
             .then(response => {
                 console.log(response.data);
                 if (response.status === 201) {

@@ -1,4 +1,5 @@
 const CreatePerson = require('./createPerson');
+const CopyTextToClipboard = require('./copyToClipboard');
 const Swal = require('sweetalert2');
 
 module.exports = {
@@ -26,6 +27,15 @@ module.exports = {
             timer: 3000,
           
         })
+    },
+    confirmationEmailMasks: () =>{
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Padrão de email incorreto!",
+            showConfirmButton: false,
+            timer: 1500
+          });
     },
     confirmationUndefined: () =>{
         Swal.fire({
@@ -106,9 +116,9 @@ module.exports = {
             confirmButtonText: 'Copy',
             imageHeight: 200,
             imageAlt: "Custom image"
-          }).then((result) => {
+          }).then(async (result) => {
             if (result.isConfirmed) {
-                navigator.clipboard.writeText(qrcode)
+                await CopyTextToClipboard.copyToClipboard(qrcode);
                 Swal.fire({
                     icon: 'success',
                     title: "Copiado!",
@@ -117,10 +127,10 @@ module.exports = {
                     imageWidth: 400,
                     imageHeight: 200,
                     imageAlt: "Custom image"
-            }).then((result) => {
+            }).then(async (result) => {
                 if (result.isConfirmed) {
                     // chamar metodo aqui
-                    CreatePerson.createPersonData(formdata);
+                    await CreatePerson.createPersonData(formdata);
                     Swal.fire({
                         icon: 'success',
                         title: "Submetemos seus dados para nossa base!",

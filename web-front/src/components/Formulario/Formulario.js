@@ -13,21 +13,21 @@ import {
 } from 'reactstrap';
 
 import api from '../../services/api.js';
-import MascaraTelefone from 'react-text-mask';
 
+import MascaraTelefone from 'react-text-mask';
 import categoria from './categoria.json';
 import './formulario.css';
 
 const PopUps = require('../../utils/PopUps.js');
 
 const Formulario = (props) => {
-    const [Nome, setNome] = useState('')
-    const [Instrumento, setInstrumento] = useState('')
-    const [Telefone, setTelefone] = useState('')
-    const [Email, setEmail] = useState('')
-    const [Descricao, setDescricao] = useState('')
-    const [concordo, setConcordo] = useState(false)
-    const [character, setCharacter] = useState('')
+    const [Nome, setNome] = useState('');
+    const [Instrumento, setInstrumento] = useState('');
+    const [Telefone, setTelefone] = useState('');
+    const [Email, setEmail] = useState('');
+    const [Descricao, setDescricao] = useState('');
+    const [concordo, setConcordo] = useState(false);
+    const [character, setCharacter] = useState('');
 
     const setTextLimitation = text => {
         text.length > props.limite ?
@@ -35,9 +35,8 @@ const Formulario = (props) => {
     }
 
     function resetOption() {
-        document.getElementById("checkbox").checked = false;
+        document.getElementById("checkbox").click();
     }
-    
 
     function disableSendButton() {
         document.getElementById("button-send").disabled = true;
@@ -91,10 +90,8 @@ const Formulario = (props) => {
                         .then(async response => {
                             console.log(response.data);
                             PopUps.confirmationPaymantPix(response.data.imagemQrcode, response.data.qrcode, formdata);
-                            if (response.data.qrcode !== ''){
-                                limparCampos()
-                                enableDisableButton()
-                            }
+                            limparCampos()
+                            enableDisableButton()
                         })
                         .catch(error => {
                             console.log(JSON.stringify(error.message))
@@ -111,10 +108,8 @@ const Formulario = (props) => {
                 } catch (error) {
                     PopUps.confirmationServerError()
                     enableDisableButton()
-
                 }
             }
-
         }
     }
 
@@ -146,10 +141,12 @@ const Formulario = (props) => {
                         {/* EMAIL */}
                         <FormGroup>
                             <Label className="label-form" for="email">Email*</Label>
-                            <Input className="categoria principal" type="text" name="email"
-                                id="email" 
+                            <Input className="categoria principal" type="email" name="email"
+                                id="email"
                                 value={Email}
-                                onChange={e => { setEmail(e.target.value) }} />
+                                onChange={e => { 
+                                    setEmail(e.target.value.replace(/[^a-z0-9@._-]/g, ''));
+                                    }} />
                         </FormGroup>
                         {/* TELEFONE */}
                         <FormGroup>

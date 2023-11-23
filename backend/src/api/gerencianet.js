@@ -5,7 +5,7 @@ const path = require('path');
 const https = require('https');
 
 const cert = fs.readFileSync(
-  path.resolve(__dirname, `../../certs/producao-522327-louvor-harmonia-prod.p12`)
+  path.resolve(__dirname, `../../certs/homologacao-522327-louvorharmonia-dev.p12`)
 );
 
 const agent = new https.Agent({
