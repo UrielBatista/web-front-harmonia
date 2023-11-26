@@ -24,8 +24,8 @@ router.use((request,response,next)=>{
 })
 
 const reqGNAlready = GerNet.GNRequest({
-  clientID: process.env.GN_CLIENT_ID,
-  clientSecret: process.env.GN_CLIENT_SECRET
+  clientID: process.env.GN_CLIENT_ID_PROD,
+  clientSecret: process.env.GN_CLIENT_SECRET_PROD
 });
 
 //GET Busca todas as pessoa cadastradas no banco de dados
@@ -82,7 +82,7 @@ router.route('/verificacao/pessoa/:id').get( async (request,response)=>{
 
 var port = process.env.PORT || 8090;
 app.listen(port);
-console.log('Api rodando em: http://localhost:'+port);
+console.log('Api rodando em: http://10.182.0.2:'+port);
 
 
 
