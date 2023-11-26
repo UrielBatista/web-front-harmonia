@@ -3,7 +3,6 @@ import React from "react";
 import { Link } from "react-scroll";
 import { Button } from 'reactstrap';
 
-import versao_background from '../../assests/clip/versao_background.mp4';
 import img_back from '../../assests/png/imagemBack.jpg';
 
 import './main.css';
@@ -17,7 +16,7 @@ const Main = (props) => {
         >
           <source src={versao_background} type="video/mp4" />
         </video>  */}
-        <img className="video-autoplay" src={img_back}></img>
+        <img className="video-autoplay" src={img_back} alt="wallpaper of the page"></img>
         <p>Já imaginou fazer parte
                 <b className="first-bold"> de um
                 dos melhores eventos de música sacra?</b>

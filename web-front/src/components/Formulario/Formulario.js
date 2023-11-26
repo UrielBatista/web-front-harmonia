@@ -10,6 +10,10 @@ import {
     FormGroup,
     Label,
     Input,
+    ButtonDropdown,
+    DropdownToggle,
+    DropdownItem,
+    DropdownMenu
 } from 'reactstrap';
 
 import api from '../../services/api.js';
@@ -28,12 +32,20 @@ const Formulario = (props) => {
     const [Descricao, setDescricao] = useState('');
     const [concordo, setConcordo] = useState(false);
     const [character, setCharacter] = useState('');
+    const [idTipo, setIdTipo] = useState('');
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
 
     const setTextLimitation = text => {
         text.length > props.limite ?
             setCharacter(text.slice(0, props.limite)) : setCharacter(text)
     }
-
+    
     function resetOption() {
         document.getElementById("checkbox").click();
     }
@@ -86,9 +98,8 @@ const Formulario = (props) => {
                 disableSendButton()
 
                 try {
-                    api.post('/inscricao/pagamento', formdata)
+                    api.post(`/inscricao/pagamento/${idTipo}`)
                         .then(async response => {
-                            console.log(response.data);
                             PopUps.confirmationPaymantPix(response.data.imagemQrcode, response.data.qrcode, formdata);
                             limparCampos()
                             enableDisableButton()
@@ -201,6 +212,22 @@ const Formulario = (props) => {
                             <p className="text-limite">{character.length}/{props.limite}</p>
                             </FormGroup>
 
+                        
+                        {/*TO-DO: Componente para escolher tipo de pagamento */}
+                         <div className="p_para_baixar">
+                            <p>*Escolha aqui o seu pacote</p>
+                            <ButtonDropdown isOpen={isOpen} toggle={toggleDropdown}>
+                                <DropdownToggle caret color="danger">
+                                    Pacotes Disponíveis
+                                </DropdownToggle>
+                                    <DropdownMenu>
+                                        <DropdownItem value={idTipo} onClick={() => setIdTipo('1')}>Pacote Basico</DropdownItem>
+                                        <DropdownItem value={idTipo} onClick={() => setIdTipo('2')}>Pacote Médio</DropdownItem>
+                                        <DropdownItem value={idTipo} onClick={() => setIdTipo('3')}>Pacote Completo</DropdownItem>
+                                    </DropdownMenu>
+                                </ButtonDropdown>
+                        </div>
+
                         {/* CHECKBOX */}
                         <div className="div-concordo">
                             <Checkbox onClick={verificaCheckbox} className="concordo " type="checkbox" id="checkbox"
@@ -211,21 +238,6 @@ const Formulario = (props) => {
                         <Link to="/Politica" target="_blank" > Política de Privacidade</Link>.</p></Checkbox>
                        
                         </div>
-                        {/*TO-DO: Componente para baixar a partitura especifica para cada instrumento */}
-                        {/* <div className="p_para_baixar">
-                            <p>*Baixe aqui a sua partitura</p>
-                            <ButtonDropdown isOpen={dropdownOpen} toggle={toggle}>
-                                <DropdownToggle caret color="danger">
-                                    Partituras
-                                </DropdownToggle>
-                                    <DropdownMenu>
-                                        <DropdownItem href="https://drive.google.com/uc?export=download&id=1sa9mRxTkEjaT9VC5qD78HM95j-l5RjpM">Violao</DropdownItem>
-                                        <DropdownItem>Violino</DropdownItem>
-                                        <DropdownItem>Viola</DropdownItem>
-                                        <DropdownItem>Piano</DropdownItem>
-                                    </DropdownMenu>
-                                </ButtonDropdown>
-                        </div> */}
                             <button className="button-send" id="button-send"
                                 type="submit" onClick={handleSendForm}>Enviar
                             </button>
