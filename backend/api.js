@@ -1,8 +1,11 @@
 require('dotenv').config();
 
 const GerNet = require('./src/services/gerencianet');
-const Pessoa = require('./src/models/PersonModel');
 const PaymentsTypes = require('./src/services/paymentsType');
+// const Pessoa = require('./src/models/PersonModel');
+
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('./database/pessoas.db');
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -27,27 +30,27 @@ const reqGNAlready = GerNet.GNRequest({
 
 //GET Busca todas as pessoa cadastradas no banco de dados
 router.route('/pessoas').get( async (request,response)=>{
-   await Pessoa.findAll().then((fetchedData) => {
-      response.json(fetchedData);
-    });
+  db.all('SELECT * FROM PESSOAS', (err, rows) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    response.json(rows);
+  });
 })
 
 
 //POST Cria a pessoa de fato no banco de dados
 router.route('/inscricao/pessoa').post(async (request, response) => {
-    let add = {...request.body}
+  let add = {...request.body}
+  const currentDate = new Date();
+  db.run('INSERT INTO PESSOAS (Nome, Email, Telefone, Instrumento, Descricao, createdAt) VALUES (?, ?, ?, ?, ?, ?)', 
+  [add.Nome, add.Email, add.Telefone, add.Instrumento, add.Descricao, currentDate.toISOString().slice(0, 19).replace('T', ' ')], function (err) {
+      if (err) {
+          return res.status(500).json({ error: 'Erro ao inserir pessoa no banco de dados.' });
+      }
 
-    // Cria uma nova pessoa usando o modelo Pessoa
-    await Pessoa.create({
-      Nome: add.Nome,
-      Email: add.Email,
-      Telefone: add.Telefone,
-      Instrumento: add.Instrumento,
-      Descricao: add.Descricao
-    }).then((createdDatabase) => {
-      createdDatabase.save()
-      response.json(createdDatabase)
-    });
+      response.status(201).json(add);
+  });
 })
 
 //POST Faz o processo de geração de pagamento com o valor específico
